@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+        .btn{          /* input:image  */
+            width:50px;
+            height:50px;
+            background:none;
+            border:none;
+            padding: 0%; /* 버튼안에 있는 기본적인 padding 제거*/
+        }
+        button img{
+            width:100%;           
+        }
+    </style>
+  </head>
+  <body>
+    <form action="register.jsp" method="post">
+      <fieldset>
+        <legend>필수 사항</legend>
+        <div>
+        	<input type="hidden" name="age" value="3" />
+        </div>
+        <p>
+          <label for="name">이름</label>
+          <input type="text" name="name" id="name" />
+        </p>
+        <p>
+          <label for="email">이메일</label>
+          <input type="email" name="" id="email" />
+        </p>
+        <p>
+          <label for="password">비밀번호</label>
+          <input type="password" name="" id="password" />
+        </p>
+      </fieldset>
+      <fieldset>
+        <legend>부가 입력 사항</legend>
+        <!-- <p>
+          <label for="birthdate">생년월일</label>
+          <input type="date" name="" id="birthdate" />
+        </p> -->
+        <p>
+          <span>거주지를 선택해 주세요</span><br />
+          <select name="addr" id="addr">
+            <option value="서울시">서울시</option>
+            <option value="부산시">부산시</option>
+            <option value="경기도">경기도</option>
+            <option value="충청도">충청도</option>
+            <option value="제주도">제주도</option>
+          </select>
+        </p>
+        <p>
+          <span>취미</span>
+          <label for="reading">독서</label>
+          <input type="checkbox" name="interest" id="reading" />
+          <label for="travel">여행</label>
+          <input type="checkbox" name="interest" id="travel" />
+          <label for="movie">영화감상</label>
+          <input type="checkbox" name="interest" id="movie" />
+        </p>
+        <p>
+          <span>성별 </span>
+          <label for="male">남성</label>
+          <input type="radio" name="gender" id="male" />
+          <label for="female">여성</label>
+          <input type="radio" name="gender" id="female" />
+        </p>
+        <p>
+          <span>사진을 등록해 주세요</span>
+          <input type="file" name="" id="avatar" />
+        </p>
+        <p>
+          <span>방문 경로를 말씀해 주세요</span><br />
+          <textarea name="msg" id="" cols="30" rows="10"></textarea>
+        </p>
+      </fieldset>
+      <p>
+        <input type="submit" value="회원가입" />
+        <input type="reset" value="재작성" />
+        <button type="submit">전송</button>
+        <hr>
+        <input type="image" src="submit.png" alt="전송" class="btn">
+        <!--button 안에 이미지를 쓰게 되면 배경이 생겨버림-->
+        <button type="submit" class="btn"><img src="submit.png" alt="전송"></button>
+      </p>
+    </form>
+  </body>
+</html>
