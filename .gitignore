@@ -105,3 +105,4 @@ target/
 
 Servers/
 */WebContent/META-INF/MANIFEST.MF
+*/.gitignore
