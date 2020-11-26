@@ -10,30 +10,29 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class AddServlet
+ * Servlet implementation class NetInfoServlet
  */
-@WebServlet("/Add")
-public class AddServlet extends HttpServlet {
+@WebServlet("/Network")
+public class NetInfoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//사용자가 보낸 값 가져와서 더하기 한 후 결과값 출력
-		int num1=Integer.parseInt(request.getParameter("num1"));
-		int num2=Integer.parseInt(request.getParameter("num2"));
 		
-		int sum = num1 + num2;
-		
-		//보여지는 페이지에 대한 컨텐츠 타입 설정
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
-		out.print("<html><head><title>덧셈프로그램</title></head>");
-		out.print("<body><h2>덧셈결과</h2>");
-		out.print("<h3>"+num1+" + "+num2+" = "+sum+"</h3>");
-		out.print("</body></html>");
 		
+		out.print("<html><head><title>Request 정보</title></head>");
+		out.print("<body>");
+		out.print("<h3>네트워크 정보</h3><ul>");
+		out.printf("<li>Request Scheme : %s</li>",request.getScheme());
+		out.printf("<li>Server Name : %s</li>",request.getServerName());
+		out.printf("<li>Server Address : %s</li>",request.getLocalAddr());
+		out.printf("<li>Server Port : %s</li>",request.getServerPort());
+		out.printf("<li>Client Address  : %s</li>",request.getRemoteAddr());
+		out.printf("<li>Client Host  : %s</li>",request.getRemoteHost());
+		out.printf("<li>Client Port  : %s</li>",request.getRemotePort());
+		out.printf("<li>Client user-Agent  : %s</li>",request.getHeader("user-agent"));		
+		out.print("</body></html>");		
 	}
 
 	/**

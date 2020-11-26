@@ -2,6 +2,7 @@ package basic;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Arrays;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,29 +11,28 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class AddServlet
+ * Servlet implementation class DogServlet
  */
-@WebServlet("/Add")
-public class AddServlet extends HttpServlet {
+@WebServlet("/DogServlet")
+public class DogServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//사용자가 보낸 값 가져와서 더하기 한 후 결과값 출력
-		int num1=Integer.parseInt(request.getParameter("num1"));
-		int num2=Integer.parseInt(request.getParameter("num2"));
+		request.setCharacterEncoding("utf-8");
+		//사용자의 선택 값 가져오기
+		String[] dog=request.getParameterValues("dog");
+//		System.out.println(Arrays.toString(dog));
 		
-		int sum = num1 + num2;
-		
-		//보여지는 페이지에 대한 컨텐츠 타입 설정
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
-		out.print("<html><head><title>덧셈프로그램</title></head>");
-		out.print("<body><h2>덧셈결과</h2>");
-		out.print("<h3>"+num1+" + "+num2+" = "+sum+"</h3>");
-		out.print("</body></html>");
+		
+		out.print("<html><head><title>선호도</title></head>");
+		out.print("<body><h3>당신이 선택한 강아지 종류</h3>");
+		out.print("<ul>");
+		for(String s:dog) {
+			out.print("<li>"+s+"</li>");
+		}		
+		out.print("</ul></body></html>");
 		
 	}
 
